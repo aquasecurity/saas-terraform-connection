@@ -19,4 +19,5 @@ module "cloudsploit" {
 ```
 
 ## Outputs
-* **cloudsploit_cross_account_role_arn** - Cloudsploit cross account trust role.
+* **cloudsploit_cross_account_role_arn** - Cloudsploit cross account trust role. This is only output if `use_aws_gov` is set to `true`.
+* **cloudsploit_cross_account_role_gov_arn** - Cloudsploit cross account trust role for AWS gov. This is only output if `use_aws_gov` is set to `false`.
