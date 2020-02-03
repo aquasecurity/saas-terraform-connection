@@ -16,7 +16,7 @@ resource "aws_iam_role" "cloudsploit_cross_account_role" {
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringEquals": {
-          "sts:ExternalId": var.cloudsploit_external_id
+          "sts:ExternalId": "${var.cloudsploit_external_id}"
         }
       }
     }
