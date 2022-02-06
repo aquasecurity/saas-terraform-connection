@@ -21,14 +21,14 @@ data "aws_iam_policy_document" "cloudsploit_cross_account_role_document" {
 resource "aws_iam_role" "cloudsploit_cross_account_role" {
   name = "tf-cloudsploit"
   # disable this if use_aws_gov == true
-  count = "${var.use_aws_gov ? 1 : 0}"
+  count = var.use_aws_gov ? 1 : 0
   assume_role_policy = data.aws_iam_policy_document.cloudsploit_cross_account_role_document
 }
 
 
 resource "aws_iam_role_policy_attachment" "cloudsploit_cross_account_attach" {
   # disable this if use_aws_gov == true
-  count = "${var.use_aws_gov ? 1 : 0}"
+  count = var.use_aws_gov ? 1 : 0
 
   role       = aws_iam_role.cloudsploit_cross_account_role[*].name
   policy_arn = "arn:aws:iam::aws:policy/SecurityAudit"
